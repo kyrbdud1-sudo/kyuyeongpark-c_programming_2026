@@ -1,0 +1,38 @@
+# clang-format 설정 파일
+# 코드 포맷팅 규칙 정의
+
+# 기본 스타일: Google 스타일 기반
+BasedOnStyle: Google
+
+# 들여쓰기
+IndentWidth: 2
+TabWidth: 2
+UseTab: Never
+
+# 줄 길이
+ColumnLimit: 80
+
+# 중괄호 스타일
+BreakBeforeBraces: Attach
+
+# 공백
+SpaceAfterCStyleCast: false
+SpaceBeforeParens: ControlStatements
+SpacesBeforeTrailingComments: 1
+
+# 포인터 정렬
+PointerAlignment: Left
+
+# 함수 선언/정의
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+
+# 정렬
+AlignConsecutiveAssignments: false
+AlignConsecutiveDeclarations: false
+
+# 기타
+SortIncludes: false
+IncludeBlocks: Preserve
+

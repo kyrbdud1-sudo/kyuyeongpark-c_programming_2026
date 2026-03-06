@@ -1,0 +1,35 @@
+{
+    "name": "C Development (Copilot & GitFlow)",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cpptools-extension-pack",
+                "formulahendry.code-runner",
+                "llvm-vs-code-extensions.vscode-clangd",
+                "DavidAnson.vscode-markdownlint",
+                "yzhang.markdown-all-in-one",
+                "GitHub.copilot", // GitHub Copilot 핵심
+                "GitHub.copilot-chat" // Copilot 채팅 (질문 답변용)
+            ],
+            "settings": {
+                // Code Runner 설정: 실행 시 터미널을 사용하도록 설정 (입력값 처리 가능)
+                "code-runner.runInTerminal": true,
+                "code-runner.saveFileBeforeRun": true,
+                // C 파일 실행: makefile이 있으면 make 사용, 없으면 gcc로 .o 파일 생성
+                "code-runner.executorMap": {
+                    "c": "cd $dir && if [ -f makefile ] || [ -f Makefile ]; then make && TARGET=$(grep -m1 '^TARGET' makefile Makefile 2>/dev/null | head -1 | cut -d'=' -f2 | tr -d ' ') && ./$TARGET; else gcc $fileName -o $fileNameWithoutExt.o && ./$fileNameWithoutExt.o; fi"
+                },
+                // C++ 확장 프로그램이 Copilot과 잘 작동하도록 최적화
+                "C_Cpp.autocomplete": "default",
+                // clangd inlay hints 비활성화 (printf(format: "...") 같은 파라미터 이름 표시 제거)
+                "clangd.inlayHints.parameterNames": "none",
+                "clangd.inlayHints.enabled": "off"
+            }
+        }
+    },
+    "remoteUser": "root"
+}

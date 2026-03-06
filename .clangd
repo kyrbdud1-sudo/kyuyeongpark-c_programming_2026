@@ -1,0 +1,14 @@
+CompileFlags:
+  Add:
+    - -x
+    - c
+    - -std=c11
+    - -Wall
+    - -Wextra
+    - -g
+
+Diagnostics:
+  UnusedIncludes: None
+
+Index:
+  Background: Build
